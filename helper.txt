@@ -1,0 +1,40 @@
+        <ContentControl Grid.Column="1" Grid.ColumnSpan="2" Content="{Binding CurrentViewModel}"></ContentControl>
+
+
+
+Height="{Binding WindowHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="{Binding WindowWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+
+
+
+  <Grid Grid.Column="1" Visibility="{Binding RegisterHyper}">
+            <TextBlock Margin="69,350,72,0" VerticalAlignment="Center" >
+            Нямате профил? <Hyperlink Command="{Binding Register}">Регистрирайте се!</Hyperlink>
+            </TextBlock>
+        </Grid>
+
+
+
+
+<UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="booleanToVisibility"/>
+    </UserControl.Resources>
+
+ <ProgressBar Visibility="{Binding IsProgressVisible, Converter={StaticResource booleanToVisibility}}" Width="200" Height="10" IsIndeterminate="True" />
+
+private bool isProgressVisible;
+
+public bool IsProgressVisible { get { return isProgressVisible; } set { isProgressVisible = value; RaisePropertyChanged("IsProgressVisible"); } }
+
+
+H W
+AddQuestion 500 600
+DeleteQuestion 500 600
+GameRules 800 1000
+GameStudent 630 800
+Login 400 400
+PrMenu 100 400
+RankingsPr 450 600
+Register 550 500
+StMenu 350 400
+TrMenu 200 400
+UpdateQuestion 500 600

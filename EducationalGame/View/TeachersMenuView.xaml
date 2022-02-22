@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="EducationalGame.View.TeachersMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EducationalGame.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="400"
+             DataContext="{Binding TeachersMenuVM, Source={StaticResource Locator}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" Content="Добави въпрос" Margin="120,5" Command="{Binding Add}"></Button>
+        <Button Grid.Row="1" Content="Редактирай въпрос" Margin="120,5" Command="{Binding Update}"></Button>
+        <Button Grid.Row="2" Content="Изтрий въпрос" Margin="120,5" Command="{Binding Delete}"></Button>
+        <Button Grid.Row="3" Content="Отпиши се" Margin="120,5" Command="{Binding LogOut}"></Button>
+    </Grid>
+</UserControl>

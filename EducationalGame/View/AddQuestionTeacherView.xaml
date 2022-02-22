@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="EducationalGame.View.AddQuestionTeacherView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EducationalGame.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="600"
+             DataContext="{Binding AddQuestionTeacherVM, Source={StaticResource Locator}}">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="booleanToVisibility"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Content="Категория:" FontSize="15" Margin="0,15,0,0"></Label>
+            <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding QuizCategories}" SelectedItem="{Binding SelectedQuizCategory}" Margin="5,15,201,2" IsSynchronizedWithCurrentItem="True"></ComboBox>
+            <Label Grid.Row="1" Content="Въпрос:" FontSize="15" ></Label>
+            <Label Grid.Row="3" Content="Отговор:" FontSize="15" />
+            <TextBox Grid.Row="2" Grid.ColumnSpan="2" Margin="5,0,243,0" FontSize="15" Text="{Binding NewQuestion}"></TextBox>
+            <Label Grid.Row="2" Grid.Column="1" Content="Неправилно зададен въпрос" Visibility="{Binding WrongQuestion}" Margin="299,0,0,0" VerticalAlignment="Center" FontSize="15" Foreground="Red"></Label>
+            <TextBox Grid.Row="4" Grid.ColumnSpan="2" Margin="5,0,243,1" FontSize="15" Text="{Binding NewAnswer}"></TextBox>
+            <Button Content="Добави" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="107,5,240,5" Command="{Binding Add}"/>
+            <Button Content="Назад" Grid.Row="5" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5,5,0,5" Command="{Binding Back}"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="Грешен формат на отговора" Visibility="{Binding WrongAnswer}" Margin="299,0,0,0" VerticalAlignment="Center" FontSize="15" Foreground="Red"></Label>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <ListView ItemsSource="{Binding GameQuizesFromSelectedCategory}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Въпрос" Width="450" DisplayMemberBinding="{Binding Question}"/>
+                        <GridViewColumn Header="Отговор" Width="120" DisplayMemberBinding="{Binding Answer}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ProgressBar Visibility="{Binding IsProgressVisible, Converter={StaticResource booleanToVisibility}}" Width="200" Height="10" IsIndeterminate="True" />
+        </Grid>
+    </Grid>
+</UserControl>

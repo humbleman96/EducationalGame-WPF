@@ -1,0 +1,66 @@
+<Application x:Class="EducationalGame.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="View/MainWindow.xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             d1p1:Ignorable="d"
+             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:EducationalGame.ViewModel"
+             xmlns:views="clr-namespace:EducationalGame.View">
+
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Cyan.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Cyan.xaml" />       
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--<Style TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="#FFBBD60C" />
+            </Style>-->
+
+           
+
+            <vm:ViewModelLocator x:Key="Locator"/>
+            <DataTemplate DataType="{x:Type vm:RegistrationVM}">
+                <views:RegistrationView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:LoginVM}">
+                <views:LoginView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:GameStudentVM}">
+                <views:GameStudentView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:AddQuestionTeacherVM}">
+                <views:AddQuestionTeacherView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:UpdateQuestionTeacherVM}">
+                <views:UpdateQuestionTeacherView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:DeleteQuestionTeacherVM}">
+                <views:DeleteQuestionTeacherView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:RankingsPrincipalVM}">
+                <views:RankingsPrincipalView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:GameRulesVM}">
+                <views:GameRulesView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:StudentsMenuVM}">
+                <views:StudentsMenuView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:TeachersMenuVM}">
+                <views:TeachersMenuView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:PrincipalsMenuVM}">
+                <views:PrincipalsMenuView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+                
+    </Application.Resources>
+    
+</Application>
