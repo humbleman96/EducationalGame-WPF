@@ -2,4 +2,4 @@
 1. 3 types of users - students, teachers and principals
 2. 1 type of game for students (Hangman)
 3. adding, updating and removing questions from a game category (Teacher)
-4. rankings (Principals)
+4. rankings (Principal)
